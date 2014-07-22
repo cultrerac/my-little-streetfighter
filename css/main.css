@@ -1,11 +1,13 @@
 /* Body Styling: Background color/image in the future */
 body {
-	background-color: black;
+	background-image: url('../images/background.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
 /* Main Styling: Background color/positioning */
 .main {
-	background-color: white;
+
 	margin-top: 110px;
 	padding-left: 100px;
 	min-width: 1200px;
@@ -44,7 +46,7 @@ body {
 
 /* Hadouken Styling */
 .hadouken {
-	background-image: url('../images/hadouken.gif');
+	background-image: url('../images/flyin.gif');
 	width: 156px;
 	height: 90px;
 	display: none;
@@ -53,4 +55,5 @@ body {
 	top: 173px;
 	left: -129px;
 }
+
 

@@ -13,8 +13,8 @@ $(document).ready(function () {
 		$(".ryu-throwing").show();
 		$(".hadouken").finish().show()
 		.animate(
-			{"left": "300px"},
-			500,
+			{"left": "600px"}, //Direction and Distance
+			2000, // Change the Speed, lower # is faster
 			function() {
 				$(this).hide();
 				$(this).css("left", "-212px");	

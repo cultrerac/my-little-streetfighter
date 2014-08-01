@@ -1,37 +1,88 @@
-$(document).ready(function () {
-	$(".ryu").on("mouseenter", function () {
-		$(".ryu-still").hide();
-		$(".ryu-ready").show();
-	})
-	.on("mouseleave", function () {
-		$(".ryu-ready").hide();
-		$(".ryu-still").show();
-	})
-	.on("mousedown", function () {
-		playHadouken();
-		$(".ryu-ready").hide();
-		$(".ryu-throwing").show();
-		$(".hadouken").finish().show()
-		.animate(
-			{"left": "600px"}, //Direction and Distance
-			2000, // Change the Speed, lower # is faster
-			function() {
-				$(this).hide();
-				$(this).css("left", "-212px");	
-			}
-			);
+$(document).ready(function() {
 
-	})
-	.on("mouseup", function () {
-		$(".ryu-throwing").hide();
-		$(".ryu-ready").show();
-	});
+  // VARIABLES
+  var mouseIsDown = false,
+      keyIsDown = false,
+      hadoukenSound = $('#hadouken-sound'),
+      soundVolume = 0.5,
+      ryu = $('.ryu'),
+      ryuStill = $('.ryu-still'),
+      ryuReady = $('.ryu-ready'),
+      ryuCool = $('.ryu-cool'),
+      ryuThrowing = $('.ryu-throwing'),
+      hadouken = $('.hadouken'),
+      keyNumber = 88;
 
+
+
+  // FUNCTIONS
+  function playHadouken () {
+    hadoukenSound[0].volume = soundVolume;
+    hadoukenSound[0].load();
+    hadoukenSound[0].play();
+  }
+
+  function ryuEnter() {
+    hideAllRyu();
+    ryuReady.toggle();
+  }
+
+  function ryuLeave() {
+    hideAllRyu();
+    ryuStill.toggle();
+  }
+
+  function ryuClicked() {
+    hideAllRyu();
+    ryuThrowing.toggle();
+    playHadouken();
+    hadouken.finish().show()
+                  .animate(
+                    {'left': '372px'},
+                    1200,
+                    function() {
+                      $(this).hide();
+                      $(this).css('left', '-140px');
+                    }
+                  );
+  }
+
+  function ryuUnClicked() {
+    hideAllRyu();
+    ryuReady.toggle();
+  }
+
+  function keyPressed(event) {
+    if(event.which == keyNumber) {
+      hideAllRyu();
+      ryuCool.toggle();
+    }
+  }
+
+  function keyUnPressed(event) {
+    if(event.which == keyNumber) {
+      ryuStill.toggle();
+      ryuCool.toggle();
+    }
+  }
+
+  function hideAllRyu() {
+    $('div[class^="ryu-"]').hide();   
+  }
+
+
+
+  // EVENT HANDLERS
+  ryu.on('mouseenter', ryuEnter);
+
+  ryu.on('mouseleave', ryuLeave);
+
+  ryu.on('mousedown', ryuClicked);
+
+  ryu.on('mouseup', ryuUnClicked);
+
+  $(document).on('keydown', keyPressed);
+
+  $(document).on('keyup', keyUnPressed);
 
 })
-
-function playHadouken () {
-	$("#hadouken-sound")[0].volume = 0.5;
-	$("#hadouken-sound")[0].load();
-	$("#hadouken-sound")[0].play();
-}

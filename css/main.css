@@ -1,5 +1,5 @@
-/* Body Styling: Background color/image in the future */
-body {
+body { 
+	background-color: black;
 	background-image: url('../images/background.jpg');
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -7,7 +7,7 @@ body {
 
 /* Main Styling: Background color/positioning */
 .main {
-
+	display: block;
 	margin-top: 110px;
 	padding-left: 100px;
 	min-width: 1200px;
@@ -16,15 +16,16 @@ body {
 
 /* Ryu Images and Animations */
 .ryu {
-	float: left;	
+	float: left;
+	margin-top: 3px;	
 }
 
-.ryu-ready, .ryu-still, .ryu-throwing {
+.ryu-ready, .ryu-still, .ryu-throwing, .ryu-cool {
 	width: 659px;
 	height: 494px;
 }
 
-.ryu-ready, .ryu-throwing {
+.ryu-ready, .ryu-throwing, .ryu-cool, .hadouken {
 	display: none;
 }
 
@@ -40,7 +41,11 @@ body {
 	background-image: url('../images/ryu-throwing-hadouken.png');
 }
 
-.hadouken, .ryu-ready, .ryu-still, .ryu-throwing {
+.ryu-cool {
+	background-image: url('../images/ryu-cool.gif');
+}
+
+.hadouken, .ryu-ready, .ryu-still, .ryu-throwing, .ryu-cool {
 	background-repeat: no-repeat;
 }
 
@@ -56,4 +61,25 @@ body {
 	left: -129px;
 }
 
+/* Instructions Styling and Position */
+.content {
+	position: absolute;
+	left: 369px;
+	width: 750px;
+}
+.instructions {
+	margin-top: -84px;
+	width: 431px;
+	float: left;
+}
+.instructions p {
+	background-color: white;
+	opacity: .5;
+	font-size: 1em;
+	font-family: Liquorstore, Futura PT, Futura, "Trebuchet MS", "Century Gothic", sans-serif;
+	color: black;
+}
+* {
+	outline: 0px red solid;
+}
 

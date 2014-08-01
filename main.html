@@ -10,19 +10,31 @@
 </head>
 <body>
 
+<div class="content">
+		<!-- Instructions -->
+			<div class="instructions">
+				<p>Hover the cursor over Ryu. Watch as he prepares to fight!</p>
+				<p>Click on him and he'll launch a Pony! How cute! Turn your volume up to hear her squee with joy and excitement as she soars across the screen!</p>
+				<p>Press and hold the "X" key and watch Ryu strike a pose. See him smolder in the digital breeze!</p>
+			</div>
+		</div>
+
 <!-- Main Container: Contains Ryu and all other images aside from background -->
 	<div class="main">
 
 		<!-- Ryu Div -->
 		<div class="ryu">
-			<div class="ryu-still"></div>
-			<div class="ryu-ready"></div>
-			<div class="ryu-throwing"></div>
+			<div class="ryu-still" style="display: block;"></div>
+			<div class="ryu-ready" style="display: none;"></div>
+			<div class="ryu-throwing" style="display: none;"></div>
+			<div class="ryu-cool" style="display: none;"></div>
 		</div>
-		<!-- Hadouken Div -->
-		<div class="hadouken"></div>
 
-	</div>
+		<!-- Hadouken Div -->
+		<div class="hadouken" style="display: none; left: -140px;"></div>
+
+
+	</div> <!-- Close .main div -->
 
 	<!-- Audio File for Hadouken -->
 	<audio id="hadouken-sound" src="sound/squee.mp3">
